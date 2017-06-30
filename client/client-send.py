@@ -17,7 +17,7 @@ client_socket.connect(('pimatrix.westeurope.cloudapp.azure.com', 8000))
 connection = client_socket.makefile('wb')
 try:
     with picamera.PiCamera() as camera:
-        camera.resolution = (320, 240)
+        camera.resolution = (480, 320)
         # Start a preview and let the camera warm up for 2 seconds
         camera.start_preview()
         time.sleep(2)
