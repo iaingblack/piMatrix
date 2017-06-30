@@ -7,59 +7,28 @@ from PIL import Image
 # CODE TO CONVERT TO ASCII
 #############################################################################
 ASCII_CHARS = [
-    "",
+    " ",
     ".",
     "'",
-    "`",
-    "^",
+    "-",
     ":",
     ";",
-    "I",
-    "l",
     "!",
-    "<",
     "~",
+    "*",
     "+",
-    "_",
-    "-",
-    "[",
-    "}",
-    "{",
-    "1",
-    ")",
-    "\\",
-    "/",
-    "t",
-    "f",
-    "r",
-    "n",
-    "u",
-    "v",
-    "c",
-    "X",
-    "U",
-    "J",
-    "C",
-    "L",
-    "0",
-    "Z",
+    "e",
     "m",
-    "w",
-    "q",
-    "d",
-    "k",
-    "h",
-    "a",
-    "o",
+    "6",
+    "8",
+    "g",
     "#",
     "W",
-    "&",
-    "8",
-    "B",
+    "M",
     "@",
 ]
 
-def scale_image(image, new_width=180):
+def scale_image(image, new_width=200):
     """Resizes an image preserving the aspect ratio.
     """
     (original_width, original_height) = image.size
@@ -71,7 +40,7 @@ def scale_image(image, new_width=180):
 def convert_to_grayscale(image):
     return image.convert('L')
 
-def map_pixels_to_ascii_chars(image, range_width=6):
+def map_pixels_to_ascii_chars(image, range_width=15):
     """Maps each pixel to an ascii char based on the range
     in which it lies.
 
@@ -84,7 +53,7 @@ def map_pixels_to_ascii_chars(image, range_width=6):
 
     return "".join(pixels_to_chars)
 
-def convert_image_to_ascii(image, new_width=180):
+def convert_image_to_ascii(image, new_width=200):
     image = scale_image(image)
     image = convert_to_grayscale(image)
 
