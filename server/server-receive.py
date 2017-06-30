@@ -6,7 +6,27 @@ from PIL import Image
 #############################################################################
 # CODE TO CONVERT TO ASCII
 #############################################################################
-ASCII_CHARS = [ '#', '?', '%', '.', 'S', '+', '.', '*', ':', ',', '@']
+ASCII_CHARS = [
+    " ",
+    ".",
+    "'",
+    "-",
+    ":",
+    ";",
+    "!",
+    "~",
+    "*",
+    "+",
+    "e",
+    "m",
+    "6",
+    "8",
+    "g",
+    "#",
+    "W",
+    "M",
+    "@",
+]
 
 def scale_image(image, new_width=200):
     """Resizes an image preserving the aspect ratio.
@@ -20,7 +40,7 @@ def scale_image(image, new_width=200):
 def convert_to_grayscale(image):
     return image.convert('L')
 
-def map_pixels_to_ascii_chars(image, range_width=25):
+def map_pixels_to_ascii_chars(image, range_width=15):
     """Maps each pixel to an ascii char based on the range
     in which it lies.
 
