@@ -7,59 +7,35 @@ from PIL import Image
 # CODE TO CONVERT TO ASCII
 #############################################################################
 ASCII_CHARS = [
-    "",
+    " ",
     ".",
     "'",
-    "`",
-    "^",
+    "-",
     ":",
     ";",
-    "I",
-    "l",
     "!",
-    "<",
     "~",
+    "*",
     "+",
-    "_",
-    "-",
-    "[",
-    "}",
-    "{",
-    "1",
-    ")",
-    "\\",
-    "/",
-    "t",
-    "f",
+    "?",
     "r",
-    "n",
-    "u",
-    "v",
-    "c",
-    "X",
-    "U",
-    "J",
-    "C",
-    "L",
-    "0",
-    "Z",
+    "t",
+    "e",
+    "x",
+    "z",
     "m",
-    "w",
-    "q",
-    "d",
-    "k",
-    "h",
-    "a",
-    "o",
+    "6",
+    "8",
+    "g",
+    "%",
     "#",
     "W",
-    "&",
-    "8",
+    "M",
     "B",
     "@",
 ]
 
-def scale_image(image, new_width=200):
+def scale_image(image, new_width=180):
     """Resizes an image preserving the aspect ratio.
     """
     (original_width, original_height) = image.size
@@ -71,7 +47,7 @@ def scale_image(image, new_width=200):
 def convert_to_grayscale(image):
     return image.convert('L')
 
-def map_pixels_to_ascii_chars(image, range_width=5):
+def map_pixels_to_ascii_chars(image, range_width=11):
     """Maps each pixel to an ascii char based on the range
     in which it lies.
 
@@ -84,7 +60,7 @@ def map_pixels_to_ascii_chars(image, range_width=5):
 
     return "".join(pixels_to_chars)
 
-def convert_image_to_ascii(image, new_width=200):
+def convert_image_to_ascii(image, new_width=180):
     image = scale_image(image)
     image = convert_to_grayscale(image)
 
@@ -98,7 +74,6 @@ def convert_image_to_ascii(image, new_width=200):
 
 def handle_image_conversion(image_filepath):
     image_ascii = convert_image_to_ascii(image)
-    print image_ascii
 
 #############################################################################
 # CODE TO RECEIVE IMAGE
@@ -132,7 +107,6 @@ try:
         #imagetoconverttoascii = image.convert('RGB')
         ##### SAVE TO ASCII
         ascii = convert_image_to_ascii(image)
-        print ascii
         text_file = open("/var/www/html/ascii-text.txt", "w")
         text_file.write(ascii)
         text_file.close()
