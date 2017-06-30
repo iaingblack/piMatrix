@@ -1,0 +1,14 @@
+﻿body {
+  background-color: black;
+  color: white;
+}
+div {
+  /* This is the default, you don't need to
+     explicitly declare it unless overriding
+     another declaration 
+  font-family: Courier New, Courier, monospace   
+  */
+  white-space: pre-wrap;
+  line-height: 1; 
+  font-family: Lucida Console, Monaco, monospace
+}
