@@ -59,7 +59,7 @@ ASCII_CHARS = [
     "@",
 ]
 
-def scale_image(image, new_width=240):
+def scale_image(image, new_width=180):
     """Resizes an image preserving the aspect ratio.
     """
     (original_width, original_height) = image.size
@@ -84,7 +84,7 @@ def map_pixels_to_ascii_chars(image, range_width=6):
 
     return "".join(pixels_to_chars)
 
-def convert_image_to_ascii(image, new_width=240):
+def convert_image_to_ascii(image, new_width=180):
     image = scale_image(image)
     image = convert_to_grayscale(image)
 
