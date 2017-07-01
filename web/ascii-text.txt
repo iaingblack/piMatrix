@@ -7,8 +7,10 @@ ______ |__| /     \ _____ _/  |________|__|__  ___
 
 INITIAL TEXT FILE - TO LISTEN FOR DATA FROM YOUR PI, RUN;
 
-  python server-receive.py
+  python server-receive.py 8000 (choose your own port number to listen on, 8000 shown here)
   
 TO SEND DATA FROM YOUR PI AT 160x120 RESOLUTION, RUN;
 
   python client-send.py myserver myport 160 120 (choose your own dimensions if you prefer)
+
+USE ctrl+mousewheel_scroll TO CHANGE SIZE OF TEXT TO SUIT

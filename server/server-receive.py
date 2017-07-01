@@ -66,8 +66,7 @@ def receive_video_stream(port):
             # Rewind the stream, open as PIL image and do process it
             image_stream.seek(0)
             image = Image.open(image_stream)
-            print('Image is %dx%d' % image.size)
-            print(str(image.size[0])+'x'+str(image.size[1]))
+            print('Sent Image. Size is %dx%d' % image.size)
             ##### SAVE TO ASCII
             ascii = convert_image_to_ascii(image)
             text_file = open("/var/www/html/ascii-text.txt", "w")

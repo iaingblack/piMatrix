@@ -12,6 +12,7 @@ wget -q https://raw.githubusercontent.com/iaingblack/piMatrix/master/server/serv
 apt-get install apache2 -y
 wget -q https://raw.githubusercontent.com/iaingblack/piMatrix/master/web/AsciiStylesheet.css -O /var/www/html/AsciiStylesheet.css
 wget -q https://raw.githubusercontent.com/iaingblack/piMatrix/master/web/index.html -O /var/www/html/index.html
+wget -q https://raw.githubusercontent.com/iaingblack/piMatrix/master/web/ascii-text.txt -O /var/www/html/ascii-text.txt
 
 PUBLICIP="$(curl ipinfo.io/ip)"
 echo "${PUBLICIP}"
