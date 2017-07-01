@@ -15,7 +15,7 @@ Then get and run the setup.sh script in the client folder like below;
 ```
 wget -q https://raw.githubusercontent.com/iaingblack/piMatrix/master/client/setup.sh -O setup.sh
 chmod +x setup.sh
-sudo setup.sh
+sudo ./setup.sh
 ```
 
 ### Server/Web
@@ -26,5 +26,5 @@ Then get and run the setup.sh script in the server folder like below;
 ```
 wget -q https://raw.githubusercontent.com/iaingblack/piMatrix/master/server/setup.sh -O setup.sh
 chmod +x setup.sh
-sudo setup.sh
+sudo ./setup.sh
 ```
