@@ -80,39 +80,44 @@ def handle_image_conversion(image_filepath):
 #############################################################################
 # Start a socket listening for connections on 0.0.0.0:8000 (0.0.0.0 means
 # all interfaces)
-server_socket = socket.socket()
-server_socket.bind(('0.0.0.0', 8000))
-server_socket.listen(0)
-print("LISTENING")
-# Accept a single connection and make a file-like object out of it
-connection = server_socket.accept()[0].makefile('rb')
-try:
-    while True:
-        # Read the length of the image as a 32-bit unsigned int. If the
-        # length is zero, quit the loop
-        image_len = struct.unpack('<L', connection.read(struct.calcsize('<L')))[0]
-        if not image_len:
-            break
-        # Construct a stream to hold the image data and read the image
-        # data from the connection
-        image_stream = io.BytesIO()
-        image_stream.write(connection.read(image_len))
-        # Rewind the stream, open it as an image with PIL and do some
-        # processing on it
-        image_stream.seek(0)
-        image = Image.open(image_stream)
-        print('Image is %dx%d' % image.size)
-        #image.verify()
-        #print('Image is verified')
-        #imagetoconverttoascii = image.convert('RGB')
-        ##### SAVE TO ASCII
-        ascii = convert_image_to_ascii(image)
-        text_file = open("/var/www/html/ascii-text.txt", "w")
-        text_file.write(ascii)
-        text_file.close()
-        #imagetoconverttoascii.save("/usr/imagetoconverttoascii.jpg")
-        #print('Image is saved as imagetoconverttoascii.jpg')
-	#image.save('imagetoconvert.jpg')
-finally:
-    connection.close()
-    server_socket.close()
+def receive_video_stream(port):
+    server_socket = socket.socket()
+    server_socket.bind(('0.0.0.0', int(port))
+    server_socket.listen(0)
+    print("LISTENING ON PORT:"+port)
+    # Accept a single connection and make a file-like object out of it
+    connection = server_socket.accept()[0].makefile('rb')
+    try:
+        while True:
+            # Read the length of the image as a 32-bit unsigned int. If the
+            # length is zero, quit the loop
+            image_len = struct.unpack('<L', connection.read(struct.calcsize('<L')))[0]
+            if not image_len:
+                break
+            # Construct a stream to hold the image data and read the image
+            # data from the connection
+            image_stream = io.BytesIO()
+            image_stream.write(connection.read(image_len))
+            # Rewind the stream, open it as an image with PIL and do some
+            # processing on it
+            image_stream.seek(0)
+            image = Image.open(image_stream)
+            print('Image is %dx%d' % image.size)
+            ##### SAVE TO ASCII
+            ascii = convert_image_to_ascii(image)
+            text_file = open("/var/www/html/ascii-text.txt", "w")
+            text_file.write(ascii)
+            text_file.close()
+            #imagetoconverttoascii.save("/usr/imagetoconverttoascii.jpg")
+            #print('Image is saved as imagetoconverttoascii.jpg')
+        #image.save('imagetoconvert.jpg')
+    finally:
+        connection.close()
+        server_socket.close()
+
+
+if __name__=='__main__':
+    import sys
+
+    port  = sys.argv[1]
+    receive_video_stream(port)

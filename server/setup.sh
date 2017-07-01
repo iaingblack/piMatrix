@@ -1,5 +1,18 @@
+#!/bin/bash
+clear
 # Ascii Server Receiver
 apt-get update
+apt-get upgrade -y
+apt-get 
+# Python pillow ibrary
+apt-get install python-pillow -y
+
+# HTTP Server
+apt-get install apache2 -y
+wget -q https://raw.githubusercontent.com/iaingblack/piMatrix/blob/master/web/AsciiStylesheet.css -O /var/www/html/AsciiStylesheet.css
+wget -q https://raw.githubusercontent.com/iaingblack/piMatrix/master/web/index.html -O /var/www/html/index.html
+
+
 apt-get install python-pip
 apt-get install build-essential git cmake pkg-config
 apt-get install python2.7-dev
