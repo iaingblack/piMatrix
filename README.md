@@ -1,6 +1,8 @@
 # piMatrix
 Ascii code to make a raspberry pi and camera an ascii webcam
 
+![Example Pic](/images/example.png?raw=true "Example Pic")
+
 ## Overview
 This was a hackday project for a raspberry pi and the camera module. You will need 3 things;
 
