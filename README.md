@@ -28,3 +28,6 @@ wget -q https://raw.githubusercontent.com/iaingblack/piMatrix/master/server/setu
 chmod +x setup.sh
 sudo ./setup.sh
 ```
+
+## Viewing
+Simply go to the web/ip address of your server :)

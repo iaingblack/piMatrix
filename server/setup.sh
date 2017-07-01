@@ -24,3 +24,5 @@ echo PUBLIC IP FOR THIS MACHINE IS ${PUBLICIP}. START THE CLIENT WITH THIS COMMA
 echo 
 echo   python client-send.py ${PUBLICIP} 8000 160 120
 echo
+echo GO HERE TO SEE THE RESULTS - http://${PUBLICIP}
+echo 
