@@ -1,17 +1,19 @@
 #!/bin/bash
 clear
 # Ascii Server Receiver
-apt-get update
-apt-get upgrade -y
-apt-get 
+sudo apt-get update
+sudo apt-get upgrade -y
+#apt-get 
 # Python pillow ibrary
-apt-get install python-pillow -y
+sudo apt-get install python-pillow -y
+sudo wget -q https://raw.githubusercontent.com/iaingblack/piMatrix/master/server/server-receive.py -O server-receive.py
 
 # HTTP Server
-apt-get install apache2 -y
-wget -q https://raw.githubusercontent.com/iaingblack/piMatrix/blob/master/web/AsciiStylesheet.css -O /var/www/html/AsciiStylesheet.css
-wget -q https://raw.githubusercontent.com/iaingblack/piMatrix/master/web/index.html -O /var/www/html/index.html
+sudo apt-get install apache2 -y
+sudo wget -q https://raw.githubusercontent.com/iaingblack/piMatrix/master/web/AsciiStylesheet.css -O /var/www/html/AsciiStylesheet.css
+sudo wget -q https://raw.githubusercontent.com/iaingblack/piMatrix/master/web/index.html -O /var/www/html/index.html
 
+python server-receive.py 8000
 
 apt-get install python-pip
 apt-get install build-essential git cmake pkg-config

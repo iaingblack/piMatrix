@@ -82,7 +82,7 @@ def handle_image_conversion(image_filepath):
 # all interfaces)
 def receive_video_stream(port):
     server_socket = socket.socket()
-    server_socket.bind(('0.0.0.0', int(port))
+    server_socket.bind(('0.0.0.0', int(port)))
     server_socket.listen(0)
     print("LISTENING ON PORT:"+port)
     # Accept a single connection and make a file-like object out of it
