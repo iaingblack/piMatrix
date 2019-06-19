@@ -1,5 +1,5 @@
 # piMatrix
-Ascii code to make a raspberry pi and camera an ascii webcam
+Ascii code to make a raspberry pi and camera an ascii webcam.
 
 ![Example Pic](/images/animated.gif?raw=true "Example Pic")
 
